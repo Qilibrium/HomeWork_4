@@ -1,3 +1,5 @@
+package ClassSqlMethods;
+
 public class MaxProjectCountClient {
 
     private String name;

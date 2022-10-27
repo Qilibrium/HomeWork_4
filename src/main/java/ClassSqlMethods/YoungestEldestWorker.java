@@ -1,3 +1,5 @@
+package ClassSqlMethods;
+
 import java.time.LocalDate;
 
 public class YoungestEldestWorker {
@@ -31,8 +33,10 @@ public class YoungestEldestWorker {
 
     @Override
     public String toString() {
-        return "\n"+"type= " + type +
-                ", name= " + name  +
-                ", birthday= " + birthday;
+        return
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", birthday=" + birthday +
+                '}';
     }
 }

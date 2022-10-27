@@ -1,3 +1,5 @@
+package ClassSqlMethods;
+
 public class FindLongestProject {
 //    long id = rs.getLong("name");
 //    String longestMonth = rs.getString("month_count");
@@ -22,7 +24,7 @@ public class FindLongestProject {
 
     @Override
     public String toString() {
-        return "FindLongestProject: " +"\n"+
+        return "ClassSqlMethods.FindLongestProject: " +"\n"+
                 "id = " + id +"\n"+
                 "longestMonth = " + longestMonth;
 

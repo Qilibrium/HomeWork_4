@@ -1,3 +1,5 @@
+package ClassSqlMethods;
+
 public class FindMaxSalaryWorker {
 //    String name = rs.getString("name");
 //    int salary = rs.getInt("salary");
@@ -22,7 +24,7 @@ public class FindMaxSalaryWorker {
 
     @Override
     public String toString() {
-        return " FindMaxSalaryWorker " +"\n"+
+        return " ClassSqlMethods.FindMaxSalaryWorker " +"\n"+
                 "name = " + name +
                 " ,salary = " + salary;
     }

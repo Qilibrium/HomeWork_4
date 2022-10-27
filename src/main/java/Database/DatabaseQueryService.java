@@ -1,3 +1,8 @@
+package Database;
+
+import ClassSqlMethods.*;
+import Database.Prefs.Prefs;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,6 +24,8 @@ public class DatabaseQueryService {
             maxSalaryWorker.setName(rs.getString("name"));
             maxSalaryWorker.setSalary(rs.getInt("salary"));
             findMaxSalaryWorker.add(maxSalaryWorker);
+            System.out.println(maxSalaryWorker.toString());
+
         } else {
             System.out.println("Error");
         }
@@ -26,7 +33,7 @@ public class DatabaseQueryService {
     }
 
     public List<FindLongestProject> findLongestProject() throws SQLException, IOException {
-        List<FindLongestProject> findMoreLongestProject= new ArrayList<>();
+        List<FindLongestProject> findMoreLongestProject = new ArrayList<>();
         String findLongestProject = new Prefs().getString(Prefs.FIND_LONGEST_PROJECT);
         String findLongestProjectSql = String.join("\n", Files.readAllLines(Paths.get(findLongestProject)));
         Connection connection = DriverManager.getConnection(Prefs.CONNECTION_FOR_METHOD);
@@ -37,6 +44,11 @@ public class DatabaseQueryService {
             longestProject.setId(rs.getLong("name"));
             longestProject.setLongestMonth(rs.getString("month_count"));
             findMoreLongestProject.add(longestProject);
+            System.out.println(longestProject.toString());
+
+        } else {
+            System.out.println("Error");
+
         }
         return findMoreLongestProject;
     }
@@ -54,6 +66,7 @@ public class DatabaseQueryService {
             youngestEldestWorker.setName(rs.getString("name"));
             youngestEldestWorker.setBirthday(LocalDate.parse(rs.getString("birthday")));
             findYoungestEldestWorkers.add(youngestEldestWorker);
+            System.out.println(youngestEldestWorker.toString());
         }
         return findYoungestEldestWorkers;
     }
@@ -69,19 +82,14 @@ public class DatabaseQueryService {
             projectPrices.setNumberIdProject(rs.getLong("number_id_project"));
             projectPrices.setPrice(rs.getInt("prise"));
             findPrintProjectPrices.add(projectPrices);
+            System.out.println(projectPrices.toString());
         }
         return findPrintProjectPrices;
     }
-
-    public List<MaxProjectCountClient> findMaxProjectsClient() throws SQLException {
+    public List<MaxProjectCountClient> findMaxProjectsClient() throws SQLException, IOException {
         List<MaxProjectCountClient> maxProjectCountClients = new ArrayList<>();
         String maxProjectClient = new Prefs().getString(Prefs.FIND_MAX_PROJECTS_CLIENT);
-        String maxProjectClientSql;
-        try {
-            maxProjectClientSql = String.join("\n", Files.readAllLines(Paths.get(maxProjectClient)));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        String maxProjectClientSql = String.join("\n", Files.readAllLines(Paths.get(maxProjectClient)));
         Connection connection = DriverManager.getConnection(Prefs.CONNECTION_FOR_METHOD);
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(maxProjectClientSql);
@@ -90,6 +98,8 @@ public class DatabaseQueryService {
             maxProjectCountClient.setName(rs.getString("name"));
             maxProjectCountClient.setProjectCount(rs.getInt("project_count"));
             maxProjectCountClients.add(maxProjectCountClient);
+            System.out.println(maxProjectCountClient.toString());
+            System.out.println("");
         }
         return maxProjectCountClients;
     }

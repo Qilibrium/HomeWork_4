@@ -1,3 +1,5 @@
+package ClassSqlMethods;
+
 public class PrintProjectPrices {
     long numberIdProject;
     int price;
@@ -24,4 +26,5 @@ public class PrintProjectPrices {
                 "number_id_project: " + numberIdProject +
                 ", price: " + price +"\n";
     }
+
 }
