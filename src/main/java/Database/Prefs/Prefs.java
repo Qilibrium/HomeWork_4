@@ -21,6 +21,11 @@ public class Prefs {
     public static final String POPULATE_DB_SQL_PATH = "populateDbSql";
     public static final String FIND_MAX_SALARY_WORKER = "findMaxSalaryWorker";
     public static final String DEFAULT_PREFS_FILENAME = "Prefs.json";
+    public static final String INSERT_INTO_WORKER ="INSERT INTO worker(name,birthday,level,salary) VALUES (?,?,?,?)";
+    public static final String INSERT_INTO_CLIENT = "INSERT INTO client (name) VALUES (?)";
+    public static final String INSERT_INTO_PROJECT ="INSERT INTO project (client_id, start_date, finish_date) VALUES (?,?,?)";
+    public static final String INSERT_INTO_PROJECT_WORKER = "INSERT INTO project_worker (worker_id, project_id) VALUES (?,?)";
+
     private Map<String, Object> prefs = new HashMap<>();
     public Prefs(){
         this(DEFAULT_PREFS_FILENAME);

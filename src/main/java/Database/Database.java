@@ -1,4 +1,6 @@
-package Database.Prefs;
+package Database;
+
+import Database.Prefs.Prefs;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

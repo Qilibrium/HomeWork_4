@@ -1,6 +1,5 @@
 package Database;
 
-import Database.Prefs.Database;
 import Database.Prefs.Prefs;
 
 import java.io.IOException;

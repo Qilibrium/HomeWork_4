@@ -1,11 +1,11 @@
 package Database;
 
-import Database.Prefs.Database;
 import Database.Prefs.Prefs;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 
 public class DatabasePopulateService {
     public void populateDb(Database database) {
@@ -18,8 +18,8 @@ public class DatabasePopulateService {
             throw new RuntimeException(e);
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         Database database = Database.getInstance();
-        new DatabasePopulateService().populateDb(database);
+              new DatabasePopulateService().populateDb(database);
     }
 }
