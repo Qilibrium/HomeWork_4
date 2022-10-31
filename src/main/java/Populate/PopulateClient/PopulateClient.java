@@ -9,21 +9,18 @@ import java.util.Scanner;
 
 public class PopulateClient {
 
-public static void populateClient(Client client) throws SQLException {
-    PreparedStatement ps = Database.getInstance().getConnection().prepareStatement(Prefs.INSERT_INTO_CLIENT);
-    ps.setString(1, client.getName());
-    ps.execute();
+    public static void populateClient(Client client) throws SQLException {
+        PreparedStatement ps = Database.getInstance().getConnection().prepareStatement(Prefs.INSERT_INTO_CLIENT);
+        ps.setString(1, client.getName());
+        ps.execute();
+    }
+    public static void main(String[] args) throws SQLException {
+        Scanner sc = new Scanner(System.in);
+        Client client = new Client();
 
-}
-
-public static void main(String[] args) throws SQLException {
-    Scanner sc = new Scanner(System.in);
-    Client client = new Client();
-    System.out.println("Client (name_lastName: )");
-    String name = sc.next();
-    client.setName(name);
-    populateClient(client);
-}
-
-
+        System.out.println("Client name:");
+        String names = sc.nextLine();
+        client.setName(names);
+        populateClient(client);
+    }
 }
