@@ -25,9 +25,10 @@ public class PopulateProject {
         int client_id = sc.nextInt();
         project.setClient_id(client_id);
 
-        System.out.println("start_project format(yyyy-mm-dd)");
-        String start_project = sc.next();
-        project.setStart_date(Date.valueOf(start_project));
+    System.out.println("start_project format(yyyy-mm-dd)");
+    String start_project = sc.next();
+    project.setStart_date(Date.valueOf(start_project));
+
 
         System.out.println("finish+project format(yyyy-mm-dd)");
         String finish_project = sc.next();

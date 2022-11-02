@@ -10,17 +10,38 @@ import java.util.Scanner;
 public class PopulateClient {
 
     public static void populateClient(Client client) throws SQLException {
-        PreparedStatement ps = Database.getInstance().getConnection().prepareStatement(Prefs.INSERT_INTO_CLIENT);
-        ps.setString(1, client.getName());
-        ps.execute();
+        PreparedStatement ps = null;
+        try {
+            ps = Database.getInstance().getConnection().prepareStatement(Prefs.INSERT_INTO_CLIENT);
+            ps.setString(1, client.getName());
+            ps.execute();
+
+            int[] affectedRecords = ps.executeBatch();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (ps != null) {
+                ps.close();
+                System.out.println("Client added");
+                System.out.println("Input client name of EXIT:");
+            }
+        }
     }
+
     public static void main(String[] args) throws SQLException {
-        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         Client client = new Client();
 
-        System.out.println("Client name:");
-        String names = sc.nextLine();
+        System.out.println("Input client name of exit:");
+        while (!scan.hasNext("exit")) {
+
+        String names = scan.nextLine();
         client.setName(names);
         populateClient(client);
+
+        }
+
     }
 }
+
+

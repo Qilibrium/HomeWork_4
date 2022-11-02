@@ -1,11 +1,12 @@
 package Populate.PopulateWorker;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Worker {
     private int id;
     private String name;
-    private Date Birthday;
+    private LocalDate Birthday;
     private String level;
     private int salary;
 
@@ -25,11 +26,11 @@ public class Worker {
         this.name = name;
     }
 
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return Birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         Birthday = birthday;
     }
 
@@ -47,16 +48,5 @@ public class Worker {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Worker{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", Birthday=" + Birthday +
-                ", level='" + level + '\'' +
-                ", salary=" + salary +
-                '}';
     }
 }
