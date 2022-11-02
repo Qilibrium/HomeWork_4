@@ -42,7 +42,7 @@ public class PopulateWorker {
 
 
                 System.out.println("Worker birthday --format (yyyy-mm-dd)-- ");
-            while (!sc.hasNext("exit")) {
+
                 String birthday = sc.nextLine();
                 worker.setBirthday(LocalDate.parse(birthday));
             }
@@ -59,7 +59,7 @@ public class PopulateWorker {
 
         }
     }
-}
+
 
 
 
